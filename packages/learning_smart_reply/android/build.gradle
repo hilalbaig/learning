@@ -1,37 +1,28 @@
-group 'com.salkuadrat.learning.learning_smart_reply'
-version '1.0'
-
-buildscript {
-    repositories {
-        google()
-        jcenter()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.3'
-    }
+plugins {
+    id 'com.android.library'
 }
 
-rootProject.allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
-}
-
-apply plugin: 'com.android.library'
+group = "com.salkuadrat.learning.learning_smart_reply"
+version = "1.0"
 
 android {
-    compileSdkVersion 30
+    namespace "com.salkuadrat.learning.learning_smart_reply"
+    compileSdk 35
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdk 21
+        targetSdk 35
     }
 
-    aaptOptions {
-        noCompress "tflite"
+    // aaptOptions is deprecated, use androidResources
+    androidResources {
+        noCompress 'tflite'
     }
+}
+
+repositories {
+    google()
+    mavenCentral()
 }
 
 dependencies {
